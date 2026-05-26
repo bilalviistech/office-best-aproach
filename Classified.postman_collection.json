@@ -1,0 +1,632 @@
+{
+	"info": {
+		"_postman_id": "2537d0e2-80b3-4563-add1-ee33ded970bb",
+		"name": "Classified",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28558771",
+		"_collection_link": "https://gold-sunset-700846.postman.co/workspace/Team-Workspace~9a87ed42-78e5-4886-83d8-92bc98e1581a/collection/28558771-2537d0e2-80b3-4563-add1-ee33ded970bb?action=share&source=collection_link&creator=28558771"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"admin\",\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encryptedEmail\": \"GR0XERc6GR0XERdUGxYX=\",\r\n    \"token\": \"9aa7bb4b72d586e2e8b088589ee38ca247ee6c4e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/verify-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"verify-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ads",
+			"item": [
+				{
+					"name": "Vehicle",
+					"item": [
+						{
+							"name": "Get All Makes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/vehicles/get-all-makes/car",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"vehicles",
+										"get-all-makes",
+										"car"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Models By Make",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/vehicles/get-all-models-by-make/696002a0d9108a0f5b4ea440",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"vehicles",
+										"get-all-models-by-make",
+										"696002a0d9108a0f5b4ea440"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Listings",
+					"item": [
+						{
+							"name": "Post New Ad",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\": \"vehicle\",\r\n    \"title\": \"i am seeling my alto vxr 2025\",\r\n    \"description\": \"i am seeling my alto vxr 2025 and this is description\",\r\n    \"price\": 200000,\r\n    \"priceType\": \"fixed\", // [\"negotiable\", \"fixed\"]\r\n    \"currency\": \"PKR\",\r\n    // \"location\": {\r\n    //   \"cityId\": \"7657b567b567567657657\",\r\n    //   \"areaId\": \"54654v64v56f5464gdt55\",\r\n    //   \"addressText\": \"North\",\r\n    //   \"geo\": { \"type\": \"cords\", \"coordinates\": [12.67, 34.88876] } // optional\r\n    // },\r\n    \"contact\": {\r\n        \"phone\": \"03102345675\",\r\n        \"whatsapp\": \"03102345675\"\r\n    },\r\n    \"status\": \"pending\", // [\"draft\", \"pending\", \"approved\", \"rejected\", \"expired\", \"archived\"],\r\n    // \"media\": [\r\n    //     {\r\n    //         \"key\": \"\",\r\n    //         \"url\": \"\",\r\n    //         \"isCover\": false,\r\n    //         \"sort\": 0\r\n    //     }\r\n    // ],\r\n    // \"boosts\": {\r\n    //     \"activeScore\": 0,\r\n    //     \"items\": [\r\n    //         {\r\n    //             \"type\": \"featured\"\r\n    //         }\r\n    //     ] // [\"featured\", \"urgent\", \"top\", \"homepage\"]\r\n    // },\r\n    \"vehicle\": {\r\n        \"vehicleType\": \"Car\", // [\"Car\", \"Rickshaw\", \"Bike\", \"Truck\", \"Bus\"]\r\n        \"make\": \"695ffb36fb670c0d7ec15fa4\",\r\n        \"model\": \"695ffb36fb670c0d7ec15fa4\",\r\n        \"variant\": \"VXR\",\r\n        \"year\": 2025,\r\n        \"mileage\": 9000.5,\r\n        \"assembly\": \"Imported\", // \"Local\", \"Imported\"\r\n        \"features\": [\r\n            \"Power Steering\",\r\n            \"Power Windows\",\r\n            \"Power Mirrors\"\r\n        ],\r\n        \"fuelType\": \"Petrol\", // [\"Petrol\", \"Diesel\", \"CNG\", \"Electric\", \"Hybrid\"]\r\n        \"transmission\": \"Automatic\", // \"Automatic\", \"Manual\"\r\n        \"vehicleMode\": \"New\" // [\"New\", \"Used\"]\r\n    }\r\n    // \"property\": {  },\r\n    // \"slug\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/listings/new-ad",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"listings",
+										"new-ad"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Ads",
+					"item": [
+						{
+							"name": "My All Ads",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/users/my-ads",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"users",
+										"my-ads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My All Ads By Status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/users/my-ads?status=rejected",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"users",
+										"my-ads"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "rejected"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Vehicles",
+					"item": [
+						{
+							"name": "Add Make",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Suzuki\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/vehicles/add-make",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"vehicles",
+										"add-make"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Many Makes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"name\": \"Suzuki\"\r\n    },\r\n    {\r\n        \"name\": \"Toyota\"\r\n    },\r\n    {\r\n        \"name\": \"Honda\"\r\n    },\r\n    {\r\n        \"name\": \"Ford\"\r\n    },\r\n    {\r\n        \"name\": \"Chevrolet\"\r\n    },\r\n    {\r\n        \"name\": \"Nissan\"\r\n    },\r\n    {\r\n        \"name\": \"BMW\"\r\n    },\r\n    {\r\n        \"name\": \"Mercedes-Benz\"\r\n    },\r\n    {\r\n        \"name\": \"Audi\"\r\n    },\r\n    {\r\n        \"name\": \"Volkswagen\"\r\n    },\r\n    {\r\n        \"name\": \"Hyundai\"\r\n    },\r\n    {\r\n        \"name\": \"Kia\"\r\n    },\r\n    {\r\n        \"name\": \"Mazda\"\r\n    },\r\n    {\r\n        \"name\": \"Subaru\"\r\n    },\r\n    {\r\n        \"name\": \"Lexus\"\r\n    },\r\n    {\r\n        \"name\": \"Porsche\"\r\n    },\r\n    {\r\n        \"name\": \"Jaguar\"\r\n    },\r\n    {\r\n        \"name\": \"Chrysler\"\r\n    },\r\n    {\r\n        \"name\": \"Dodge\"\r\n    },\r\n    {\r\n        \"name\": \"Ram\"\r\n    },\r\n    {\r\n        \"name\": \"Buick\"\r\n    },\r\n    {\r\n        \"name\": \"Cadillac\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/vehicles/add-many-makes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"vehicles",
+										"add-many-makes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Model",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE3Njc4OTgyODUsImV4cCI6MTc3MDQ5MDI4NX0.7CNoGVUaKYgdoA6B61AYu66LOGyqct3RMd7d_rrXfcc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"makeId\": \"\",\r\n    \"name\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/vehicles/add-model",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"vehicles",
+										"add-model"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Many Model",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// For Suzuki\r\n// [\r\n//   {\"name\": \"Alto\"},\r\n//   {\"name\": \"Alto Lapin\"},\r\n//   {\"name\": \"Every\"},\r\n//   {\"name\": \"Cultus\"},\r\n//   {\"name\": \"Swift\"},\r\n//   {\"name\": \"Baleno\"},\r\n//   {\"name\": \"Bolan\"},\r\n//   {\"name\": \"Ciaz\"},\r\n//   {\"name\": \"Jimny\"},\r\n//   {\"name\": \"Jimny 5‑Door\"},\r\n//   {\"name\": \"Wagon R\"},\r\n//   {\"name\": \"Potohar\"},\r\n//   {\"name\": \"Mehran\"},\r\n//   {\"name\": \"Margalla\"},\r\n//   {\"name\": \"Ignis\"}\r\n// ]\r\n\r\n\r\n// For Honda\r\n// [\r\n//   {\"name\": \"City\"},\r\n//   {\"name\": \"Civic\"},\r\n//   {\"name\": \"BR-V\"},\r\n//   {\"name\": \"HR-V\"},\r\n//   {\"name\": \"Accord\"},\r\n//   {\"name\": \"CR‑V\"},\r\n//   {\"name\": \"Fit\"},\r\n//   {\"name\": \"Freed\"}\r\n// ]\r\n\r\n\r\n// For Ford\r\n[\r\n  {\"name\": \"F 150\"},\r\n  {\"name\": \"F 150 Raptor\"},\r\n  {\"name\": \"F 150 Shelby\"},\r\n  {\"name\": \"Ranger\"},\r\n  {\"name\": \"Ranger Raptor\"},\r\n  {\"name\": \"Mustang\"},\r\n  {\"name\": \"Escort\"},\r\n  {\"name\": \"Bronco\"},\r\n  {\"name\": \"Transit\"},\r\n  {\"name\": \"Mustang Mach‑E\"}\r\n]\r\n\r\n// For Chevrolet\r\n// [\r\n//     {\r\n//         \"name\": \"Chevrolet Exclusive\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Chevrolet Joy\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Chevrolet Spark\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Chevrolet Aveo\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Chevrolet Cruize\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Chevrolet Trailblazer\"\r\n//     }\r\n// ]\r\n// For Audi\r\n// [\r\n//     {\r\n//         \"name\": \"Audi Q2\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi Q5\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi Q8 e‑tron\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi e‑tron GT\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A3\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A4\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A5\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A6\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A7\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi A8\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi Q3\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Audi Q7\"\r\n//     }\r\n// ]\r\n// For Mercedes\r\n// [\r\n//     {\r\n//         \"name\": \"Mercedes Benz C Class\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz E Class\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz S Class\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz GLS Class\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz GLC\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz EQE\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz EQS\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz C Class Cabriolet\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz GLB\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Mercedes Benz EQC\"\r\n//     }\r\n// ]\r\n// For BMW\r\n// [\r\n//     {\r\n//         \"name\": \"BMW i4\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW iX3\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW iX2\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW iX\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW i5\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW X5\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW 7 Series\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW 2 Series\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW 3 Series\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW 5 Series\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW X1\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW X2\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW X3\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW X7\"\r\n//     },\r\n//     {\r\n//         \"name\": \"BMW i7\"\r\n//     }\r\n// ]\r\n// For Toyota\r\n// [\r\n//     {\r\n//         \"name\": \"Yaris Sedan\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Corolla\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Corolla Cross\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Hilux\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Fortuner\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Hiace\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Coaster\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Prado\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Land Cruiser\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Aqua\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Prius\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Vitz\"\r\n//     }\r\n// ]\r\n// For Nissan\r\n// [\r\n//     {\r\n//         \"name\": \"Dayz\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Roox\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Clipper\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Sunny\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Note\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Leaf\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Juke\"\r\n//     },\r\n//     {\r\n//         \"name\": \"March\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Moco\"\r\n//     },\r\n//     {\r\n//         \"name\": \"AD Van\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Serena\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Kicks\"\r\n//     },\r\n//     {\r\n//         \"name\": \"Qashqai\"\r\n//     }\r\n// ]\r\n\r\n// For KIA\r\n// [\r\n//   {\"name\": \"Picanto\"},\r\n//   {\"name\": \"Stonic\"},\r\n//   {\"name\": \"Sportage\"},\r\n//   {\"name\": \"Sorento\"},\r\n//   {\"name\": \"Carnival\"},\r\n//   {\"name\": \"EV5\"},\r\n//   {\"name\": \"EV9\"}\r\n// ]\r\n\r\n// For Mazda\r\n// [\r\n//   {\"name\": \"Carol\"},\r\n//   {\"name\": \"Flair\"},\r\n//   {\"name\": \"Scrum Van\"},\r\n//   {\"name\": \"RX8\"},\r\n//   {\"name\": \"323\"},\r\n//   {\"name\": \"B2200\"},\r\n//   {\"name\": \"Axela\"},\r\n//   {\"name\": \"626\"},\r\n//   {\"name\": \"Demio\"},\r\n//   {\"name\": \"CX‑5\"},\r\n//   {\"name\": \"CX‑30\"},\r\n//   {\"name\": \"CX‑3\"},\r\n//   {\"name\": \"MX‑5 Miata\"},\r\n//   {\"name\": \"BT‑50\"},\r\n//   {\"name\": \"Titan\"}\r\n// ]\r\n\r\n// For Subaru\r\n// [\r\n//   {\"name\": \"Pleo\"},\r\n//   {\"name\": \"Stella\"},\r\n//   {\"name\": \"Sambar\"},\r\n//   {\"name\": \"Pleo Plus\"},\r\n//   {\"name\": \"R2\"},\r\n//   {\"name\": \"Justy\"},\r\n//   {\"name\": \"Chiffon Custom\"},\r\n//   {\"name\": \"Impreza\"},\r\n//   {\"name\": \"Brz\"},\r\n//   {\"name\": \"Forester\"},\r\n//   {\"name\": \"Outback\"}\r\n// ]\r\n\r\n// For Lexus\r\n// [\r\n//   {\"name\": \"LX Series\"},\r\n//   {\"name\": \"RX Series\"},\r\n//   {\"name\": \"CT200h\"},\r\n//   {\"name\": \"UX\"},\r\n//   {\"name\": \"LS Series\"},\r\n//   {\"name\": \"RZ 450e\"}\r\n// ]\r\n\r\n// For Jaguar\r\n// [\r\n//   {\"name\": \"XF\"},\r\n//   {\"name\": \"S Type\"},\r\n//   {\"name\": \"I‑Pace\"},\r\n//   {\"name\": \"XJ L\"},\r\n//   {\"name\": \"XJS\"}\r\n// ]\r\n\r\n// For Chrysler\r\n// [\r\n//   {\"name\": \"300 C\"},\r\n//   {\"name\": \"PT Cruiser\"},\r\n//   {\"name\": \"Plymouth Voyager\"}\r\n// ]\r\n\r\n// For Porsche\r\n// [\r\n//   {\"name\": \"911\"},\r\n//   {\"name\": \"Cayenne\"},\r\n//   {\"name\": \"Panamera\"},\r\n//   {\"name\": \"Boxster\"},\r\n//   {\"name\": \"Cayman\"},\r\n//   {\"name\": \"Taycan\"},\r\n//   {\"name\": \"Macan\"}\r\n// ]\r\n\r\n// For Dodge\r\n// [\r\n//   {\"name\": \"Ram 1500\"},\r\n//   {\"name\": \"Challenger\"},\r\n//   {\"name\": \"Charger\"},\r\n//   {\"name\": \"Nitro\"},\r\n//   {\"name\": \"Durango\"},\r\n//   {\"name\": \"Viper\"}\r\n// ]\r\n\r\n// For RAM\r\n// [\r\n//   {\"name\": \"1500 TRX\"},\r\n//   {\"name\": \"2500\"},\r\n//   {\"name\": \"3500\"}\r\n// ]\r\n\r\n// For Buick\r\n// [\r\n//   {\"name\": \"Century\"},\r\n//   {\"name\": \"Electra\"},\r\n//   {\"name\": \"Enclave\"},\r\n//   {\"name\": \"Encore\"},\r\n//   {\"name\": \"Envision\"},\r\n//   {\"name\": \"LaCrosse\"},\r\n//   {\"name\": \"Lesabre\"},\r\n//   {\"name\": \"Riviera\"}\r\n// ]\r\n\r\n// For Cadillac\r\n// [\r\n//   {\"name\": \"Escalade\"},\r\n//   {\"name\": \"CTS\"},\r\n//   {\"name\": \"Fleetwood\"},\r\n//   {\"name\": \"XT4\"},\r\n//   {\"name\": \"XT5\"},\r\n//   {\"name\": \"XT6\"},\r\n//   {\"name\": \"CT4\"},\r\n//   {\"name\": \"CT5\"}\r\n// ]\r\n\r\n// For Hyundai\r\n// [\r\n//   {\"name\": \"H‑100\"},\r\n//   {\"name\": \"Elantra\"},\r\n//   {\"name\": \"Sonata\"},\r\n//   {\"name\": \"Tucson\"},\r\n//   {\"name\": \"Santa Fe\"},\r\n//   {\"name\": \"IONIQ 5\"},\r\n//   {\"name\": \"IONIQ 6\"},\r\n//   {\"name\": \"Santro\"}\r\n// ]\r\n\r\n// For Volkswagen\r\n// [\r\n//   {\"name\": \"Beetle\"},\r\n//   {\"name\": \"Golf\"},\r\n//   {\"name\": \"Up\"},\r\n//   {\"name\": \"Polo\"},\r\n//   {\"name\": \"Passat\"},\r\n//   {\"name\": \"Amarok\"},\r\n//   {\"name\": \"Transporter T6\"},\r\n//   {\"name\": \"Kombi\"}\r\n// ]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/vehicles/add-many-models/696002a0d9108a0f5b4ea443",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"vehicles",
+										"add-many-models",
+										"696002a0d9108a0f5b4ea443"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Variant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE3Njc4OTgyODUsImV4cCI6MTc3MDQ5MDI4NX0.7CNoGVUaKYgdoA6B61AYu66LOGyqct3RMd7d_rrXfcc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modelId\": \"\",\r\n    \"name\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/vehicles/add-variant",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"vehicles",
+										"add-variant"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Listings",
+					"item": [
+						{
+							"name": "Review Pending Ad",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/admin/listings/review-ads",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"listings",
+										"review-ads"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish Pending Ad",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/admin/listings/publish-ad/696153fcbede93d9b39b45a9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"listings",
+										"publish-ad",
+										"696153fcbede93d9b39b45a9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rejected Ad",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJRCI6IjY5NWZmYjM2ZmI2NzBjMGQ3ZWMxNWZhNCIsInVzZXJSb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzY3ODk4MzU0LCJleHAiOjE3NzA0OTAzNTR9.K9HxA2bCfEP1aDl3KdHiaoQf1b97TtUAnX1RZbRaNiA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Your ad has been rejected due to policy violation.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/admin/listings/reject-ad/696153fcbede93d9b39b45a9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"admin",
+										"listings",
+										"reject-ad",
+										"696153fcbede93d9b39b45a9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

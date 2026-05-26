@@ -1,0 +1,1 @@
+export const Response = (res, success, data) => res.json({ success, data });
